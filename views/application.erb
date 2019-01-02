@@ -9,7 +9,12 @@
     <link rel="stylesheet" type="text/css" href="css/application.css">
   </head>
   <body>
-
+    <h2><%= current_user ? current_user.name : nil %></h2>
+    <% if current_user %>
+      <form method="post" action="/logout">
+        <input type="submit" value="LOG OUT">
+      </form>
+    <% end %>
     <%= yield %>
 
   </body>

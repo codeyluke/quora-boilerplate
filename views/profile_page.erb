@@ -1,15 +1,19 @@
 <h1><%="Welcome #{@user.name}"%></h1>
 
-<form method="post" action="/logout">
-    <input type="submit" value="LOG OUT">
-</form>
+
 <hr>
 
 <%@questions.each do |q|%>
     <%=q.question%>
+    <a href='/question/<%= q.id %>/edit'>Edit</a></br>
 <%end%>
 
 <form method="post" action="/add_question">
+    <input type=text placeholder="Question" name="question"><br>
+    <input type=submit value="Add Question">
+</form>
+
+<form method="post" action="/update_question">
     <input type=text placeholder="Question" name="question"><br>
     <input type=submit value="Add Question">
 </form>

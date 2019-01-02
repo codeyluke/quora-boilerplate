@@ -21,7 +21,7 @@ get '/login_fail' do
 end
 
 post "/signup" do
-    user = User.new(params[:user])
+    user = User.new(params)
     if user.save
         redirect to("/login")
     else
@@ -30,10 +30,10 @@ post "/signup" do
 end 
 
 post '/login' do
-    user = User.find_by(email: params[:user][:email])
+    user = User.find_by(email: params[:email])
 
     # byebug
-    if user && user.authenticate(params[:user][:password])
+    if user && user.authenticate(params[:password])
         # session[:signed_in] = true
         session[:user_id] = user.id
         redirect to("/users/#{user.id}")

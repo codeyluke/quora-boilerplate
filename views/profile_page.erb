@@ -5,8 +5,11 @@
 </form>
 <hr>
 
-
-
 <%@questions.each do |q|%>
     <%=q.question%>
 <%end%>
+
+<form method="post" action="/add_question">
+    <input type=text placeholder="Question" name="question"><br>
+    <input type=submit value="Add Question">
+</form>

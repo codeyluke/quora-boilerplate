@@ -1,6 +1,6 @@
 require 'uri'
 require_relative '../config/init.rb'
-# enable :sessions
+enable :sessions
 
 class User < ActiveRecord::Base
     validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP } 
@@ -25,16 +25,13 @@ else
     redirect to("/signup")
 end
 end 
-  
-  
+   
 post '/login' do
-    # apply a authentication method to check if a user has entered a valid email and password
-    # if a user has successfully been authenticated, you can assign the current user id to a session
     user = User.find_by(email: params[:user][:email])
     if user && user.authenticate(params[:user][:password])
         session[:signed_in] = true
-        session[:user] = user
-        redirect to("/login_success")
+        session[:user_id] = user.id
+        redirect to("/users/#{user.id}")
     else 
         redirect to("/login_fail")
     end

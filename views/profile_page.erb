@@ -1,1 +1,8 @@
-<h1>Welcome you!</h1>
+<h1><%="Welcome #{@user.name}"%></h1>
+
+<hr>
+
+<form method="post" action="/logout">
+    <input type="submit" value="LOG OUT">
+</form>
+

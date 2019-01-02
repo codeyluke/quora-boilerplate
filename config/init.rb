@@ -13,9 +13,6 @@ require 'sinatra/cookies'
 require 'byebug'
 require 'bcrypt'
 
-# Require USER from MODELS
-require_relative '../models/user.rb'
-
 # Set APP_ROOT
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
@@ -30,3 +27,4 @@ set :erb, layout: :'application'
 # Load files
 Dir[APP_ROOT.join('controllers', '*.rb')].each { |file| require file }
 Dir[APP_ROOT.join('helpers', '*.rb')].each { |file| require file }
+Dir[APP_ROOT.join('models', '*.rb')].each { |file| require file }

@@ -1,5 +1,5 @@
 <h1>Login Success</h1>
-<%=session[:user].name%>
+<%="Welcome #{session[:user].name}"%>
 
 <form method="post" action="/logout">
     <input type="submit" value="LOG OUT">

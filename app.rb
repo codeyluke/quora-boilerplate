@@ -3,7 +3,6 @@ enable :sessions
 set :run, true
 
 get '/' do
-  @name = "Bob Smith"
   erb :"home"
 end
 

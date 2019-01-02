@@ -8,29 +8,26 @@ class User < ActiveRecord::Base
     has_secure_password
     has_many :questions
 end 
-
-
-get '/login_success' do 
-  erb :"login_success"
-end
-  
+ 
 get '/login_fail' do 
-  erb :"login_fail"
+    erb :"login_fail"
 end
   
 post "/signup" do
-user = User.new(params[:user])
-if user.save
-    redirect to("/")
-else
-    redirect to("/signup")
-end
+    user = User.new(params[:user])
+    if user.save
+        redirect to("/login")
+    else
+        redirect to("/signup")
+    end
 end 
    
 post '/login' do
     user = User.find_by(email: params[:user][:email])
+
+    # byebug
     if user && user.authenticate(params[:user][:password])
-        session[:signed_in] = true
+        # session[:signed_in] = true
         session[:user_id] = user.id
         redirect to("/users/#{user.id}")
     else 
@@ -39,7 +36,6 @@ post '/login' do
 end
 
 post '/logout' do 
-    session[:signed_in] = false 
-    p "hello"
+    session[:user_id] = nil 
     redirect to("/")
 end

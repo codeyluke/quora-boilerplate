@@ -12,5 +12,6 @@ end
 
 get '/users/:id' do
     @user = User.find(params[:id])
+    @questions = Question.where(user_id: params[:id])
     erb :"profile_page"
 end

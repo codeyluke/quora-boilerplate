@@ -1,8 +1,12 @@
 <h1><%="Welcome #{@user.name}"%></h1>
 
-<hr>
-
 <form method="post" action="/logout">
     <input type="submit" value="LOG OUT">
 </form>
+<hr>
 
+
+
+<%@questions.each do |q|%>
+    <%=q.question%>
+<%end%>

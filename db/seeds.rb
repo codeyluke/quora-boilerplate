@@ -3,3 +3,4 @@ User.create(name: "Matthew Jack", email: "mattrodam@gmail.com", password: "passw
 
 
 Question.create(question: "What is life?", user_id: 1)
+Question.create(question: "What is JavaScript?", user_id: 2)

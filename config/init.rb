@@ -13,6 +13,9 @@ require 'sinatra/cookies'
 require 'byebug'
 require 'bcrypt'
 
+# Require USER from MODELS
+require_relative '../models/user.rb'
+
 # Set APP_ROOT
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 

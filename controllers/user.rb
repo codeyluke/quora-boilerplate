@@ -34,8 +34,8 @@ post '/login' do
 
     # byebug
     if user && user.authenticate(params[:password])
-        # session[:signed_in] = true
-        session[:user_id] = user.id
+        # session[:user_id] = user.id
+        sign_in(user)
         redirect to("/users/#{user.id}")
     else 
         redirect to("/login_fail")
@@ -43,6 +43,7 @@ post '/login' do
 end
 
 post '/logout' do 
-    session[:user_id] = nil 
+    # session[:user_id] = nil
+    sign_out
     redirect to("/")
 end

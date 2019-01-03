@@ -1,4 +1,5 @@
 <form method="post" action="/edit_question/<%=@question.id%>">
+    <input id="hidden" type="hidden" name="_method" value="patch">
     <input type=text placeholder="Question" name="question" value="<%= @question.question %>"><br>
     <input type=submit value="Edit Question">
 </form>

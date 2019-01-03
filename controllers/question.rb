@@ -25,7 +25,7 @@ get '/question/:id/delete' do
     end
 end
 
-post '/edit_question/:id' do 
+patch '/edit_question/:id' do 
     if current_user
         user_question = Question.find(params[:id])
         user_question.update(question: params[:question])

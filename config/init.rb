@@ -22,7 +22,7 @@ require APP_ROOT.join('config', 'database')
 # Sinatra configuration
 set :public_folder, File.join(APP_ROOT, "public")
 set :views, File.join(APP_ROOT, "views")
-set :erb, layout: :'application'
+set :erb, layout: :'layout/application'
 set :session_secret, "superman"
 
 # Load files

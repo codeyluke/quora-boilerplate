@@ -1,23 +1,23 @@
 get '/signup' do 
-    erb :"sign_up"
+    erb :"user/sign_up"
 end
 
 get '/login' do 
-    erb :"login"
+    erb :"user/login"
 end
 
 get '/profile' do 
-    erb :"profile_page"
+    erb :"user/profile_page"
 end
 
 get '/users/:id' do
     @user = User.find(params[:id])
     @questions = Question.where(user_id: params[:id])
-    erb :"profile_page"
+    erb :"user/profile_page"
 end
 
 get '/login_fail' do 
-    erb :"login_fail"
+    erb :"user/login_fail"
 end
 
 post "/signup" do

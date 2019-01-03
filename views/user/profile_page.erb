@@ -2,10 +2,17 @@
 
 
 <%@questions.each do |q|%>
-    <%=q.question%>
+    <%="Q: #{q.question}"%>
     <a href='/question/<%= q.id %>/edit'>Edit</a>
     <a href='/question/<%= q.id %>/delete'>Delete</a></br>
+    
+    <%Answer.where(question_id:q.id).each do |a|%>
+        <%="A: #{a.answer}"%>
+    <%end%>
+    <br>
 <%end%>
+
+
 
 <form method="post" action="/add_question">
     <input type=text placeholder="Question" name="question"><br>

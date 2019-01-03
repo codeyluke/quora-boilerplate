@@ -7,16 +7,26 @@
     <a href='/question/<%= q.id %>/delete'>Delete</a></br>
     
     <%Answer.where(question_id:q.id).each do |a|%>
-        <%="A: #{a.answer}"%>
+        <%="A: #{a.answer} by #{a.user.name}"%>
+        <a href='/answer/<%= a.id %>/edit'>Edit</a>
+        <a href='/answer/<%= a.id %>/delete'>Delete</a>
+        <br>
     <%end%>
     <br>
+
+    <form method="post" action="/question/<%= q.id %>/answers/add">
+        <input type=text placeholder="answer the question" name="answer"><br>
+        <input type=submit value="Add Answer">
+    </form>
 <%end%>
 
 
 
 <form method="post" action="/add_question">
-    <input type=text placeholder="Question" name="question"><br>
+    <input type=text placeholder="ask your question" name="question"><br>
     <input type=submit value="Add Question">
 </form>
+
+
 
 

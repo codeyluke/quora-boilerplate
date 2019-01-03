@@ -3,8 +3,8 @@
 
 <%@questions.each do |q|%>
     <%=q.question%>
-    <a href='/question/<%= q.id %>/edit'>Edit</a></br>
-    
+    <a href='/question/<%= q.id %>/edit'>Edit</a>
+    <a href='/question/<%= q.id %>/delete'>Delete</a></br>
 <%end%>
 
 <form method="post" action="/add_question">

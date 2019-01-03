@@ -1,0 +1,6 @@
+<form method="post" action="/delete_question/<%=@question.id%>">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type=text placeholder="Question" name="question" value="<%= @question.question%>">
+    
+    <input type=submit value="Delete Question">
+</form>

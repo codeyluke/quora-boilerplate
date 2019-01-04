@@ -12,7 +12,7 @@
         <a href='/answer/<%=a.id%>/delete'>Delete</a>
         <br>
         
-        <%=a.votes.count%> 
+        <%="Answer Votes - #{a.votes.count}"%> 
         <form method="post" action="/vote/<%=a.id%>/add">
             <input type=submit value="Up Vote">
         </form>
@@ -53,7 +53,7 @@
                     <a href='/answer/<%=all_a.id%>/edit'>Edit</a>
                     <a href='/answer/<%=all_a.id%>/delete'>Delete</a>
                     <br>
-                    <%=all_a.votes.count%>
+                    <%="Answer Votes - #{all_a.votes.count}"%>
                     <form method="post" action="/vote/<%=all_a.id%>/add">
                         <input type=submit value="Up Vote">
                     </form>             

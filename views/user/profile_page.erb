@@ -8,8 +8,8 @@
     
     <%Answer.where(question_id:q.id).each do |a|%>
         <%="A: #{a.answer} by #{a.user.name}"%>
-        <a href='/answer/<%= a.id %>/edit'>Edit</a>
-        <a href='/answer/<%= a.id %>/delete'>Delete</a>
+        <a href='/answer/<%=a.id%>/edit'>Edit</a>
+        <a href='/answer/<%=a.id%>/delete'>Delete</a>
         <br>
     <%end%>
     <br>
@@ -20,7 +20,7 @@
     </form>
 <%end%>
 
-
+<hr>
 
 <form method="post" action="/add_question">
     <input type=text placeholder="ask your question" name="question"><br>

@@ -1,0 +1,5 @@
+<form method="post" action="/edit_answer/<%=@answer.id%>">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <input type=text placeholder="change your answer" name="answer" value="<%=@answer.answer%>"><br>
+    <input type=submit value="Change Answer">
+</form>

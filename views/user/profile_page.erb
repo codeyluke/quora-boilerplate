@@ -12,8 +12,10 @@
         <a href='/answer/<%=a.id%>/delete'>Delete</a>
         <br>
         
-        <a href='/vote/<%=a.id%>/add'>Vote +</a>                
         <%=a.votes.count%> 
+        <form method="post" action="/vote/<%=a.id%>/add">
+            <input type=submit value="Up Vote">
+        </form>                 
         
         <br>
     <%end%>
@@ -45,9 +47,11 @@
                     <%= "A: #{all_a.answer} by #{all_a.user.name}" %>
                     <a href='/answer/<%=all_a.id%>/edit'>Edit</a>
                     <a href='/answer/<%=all_a.id%>/delete'>Delete</a>
-                    <p>Vote Counts</p>
-                     <a href='/vote/<%=all_a.id%>/add'>Vote +</a>
+                    <br>
                     <%=all_a.votes.count%>
+                    <form method="post" action="/vote/<%=all_a.id%>/add">
+                        <input type=submit value="Up Vote">
+                    </form>             
                     <br>
                 <%end%>
             <%end%>   

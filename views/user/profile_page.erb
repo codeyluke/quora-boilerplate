@@ -15,7 +15,12 @@
         <%=a.votes.count%> 
         <form method="post" action="/vote/<%=a.id%>/add">
             <input type=submit value="Up Vote">
-        </form>                 
+        </form>
+      
+        <form method="post" action="/vote/<%=a.id%>/delete">
+            <input id="hidden" type="hidden" name="_method" value="delete">
+            <input type=submit value="Remove Vote">
+        </form>                  
         
         <br>
     <%end%>

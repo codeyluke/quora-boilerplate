@@ -40,7 +40,7 @@
 </form>
 
 <hr>
-
+<%# ======================= OTHER QUESTIONS ======================= %>
 <h3>Other Questions</h3>
 
 <% @all_questions.each do |all_q| %>
@@ -52,19 +52,27 @@
                     <%= "A: #{all_a.answer} by #{all_a.user.name}" %>
                     <a href='/answer/<%=all_a.id%>/edit'>Edit</a>
                     <a href='/answer/<%=all_a.id%>/delete'>Delete</a>
+
                     <br>
+
                     <%="Answer Votes - #{all_a.votes.count}"%>
                     <form method="post" action="/vote/<%=all_a.id%>/add">
                         <input type=submit value="Up Vote">
-                    </form>             
+                    </form>   
+                    <form method="post" action="/vote/<%=all_a.id%>/delete">
+                        <input id="hidden" type="hidden" name="_method" value="delete">
+                        <input type=submit value="Remove Vote">
+                    </form>                  
+    
                     <br>
+
+                    <form method="post" action="/question/<%= all_q.id %>/answers/add">
+                        <input type=text placeholder="answer the question" name="answer"><br>
+                        <input type=submit value="Add Answer">
+                    </form>
                 <%end%>
             <%end%>   
 
-            <form method="post" action="/question/<%= all_q.id %>/answers/add">
-                <input type=text placeholder="answer the question" name="answer"><br>
-                <input type=submit value="Add Answer">
-            </form>
         
     <% end %>
 <% end %>

@@ -11,3 +11,10 @@ Answer.create(answer: "Pyhthon is a snake", question_id: 4, user_id: 1)
 Answer.create(answer: "Life is good", question_id: 1, user_id: 2)
 Answer.create(answer: "Ruby is Rails", question_id: 2, user_id: 3)
 Answer.create(answer: "Ruby cheated on Sinatra", question_id: 2, user_id: 2)
+
+Vote.create(answer_id: 2, user_id: 1)
+Vote.create(answer_id: 2, user_id: 2)
+Vote.create(answer_id: 1, user_id: 3)
+Vote.create(answer_id: 1, user_id: 2)
+Vote.create(answer_id: 3, user_id: 1)
+

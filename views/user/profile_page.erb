@@ -7,9 +7,14 @@
     <a href='/question/<%= q.id %>/delete'>Delete</a></br>
     
     <%Answer.where(question_id:q.id).each do |a|%>
-        <%="A: #{a.answer} by #{a.user.name}"%>
+        <%= "A: #{a.answer} by #{a.user.name}" %>
         <a href='/answer/<%=a.id%>/edit'>Edit</a>
         <a href='/answer/<%=a.id%>/delete'>Delete</a>
+        <br>
+        
+        <a href='/vote/<%=a.id%>/add'>Vote +</a>                
+        <%=a.votes.count%> 
+        
         <br>
     <%end%>
     <br>
@@ -40,6 +45,9 @@
                     <%= "A: #{all_a.answer} by #{all_a.user.name}" %>
                     <a href='/answer/<%=all_a.id%>/edit'>Edit</a>
                     <a href='/answer/<%=all_a.id%>/delete'>Delete</a>
+                    <p>Vote Counts</p>
+                     <a href='/vote/<%=all_a.id%>/add'>Vote +</a>
+                    <%=all_a.votes.count%>
                     <br>
                 <%end%>
             <%end%>   
@@ -51,5 +59,3 @@
         
     <% end %>
 <% end %>
-
-

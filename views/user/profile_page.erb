@@ -27,6 +27,14 @@
     <input type=submit value="Add Question">
 </form>
 
+<hr>
 
+<h3>Other Questions</h3>
+
+<%@all_questions.each do |all_q|%>
+    <%if all_q.user_id != current_user.id%>
+        <%=all_q.question%><br>
+    <%end%>
+<%end%>
 
 

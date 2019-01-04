@@ -14,7 +14,7 @@ get '/users/:id' do
     @user = User.find(params[:id])
     @questions = Question.where(user_id: params[:id])
     @all_questions = Question.all
-    # @all_answers = Answer.all
+    @all_answers = Answer.all
     erb :"user/profile_page"
 end
 

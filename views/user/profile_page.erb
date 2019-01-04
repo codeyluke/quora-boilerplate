@@ -31,10 +31,25 @@
 
 <h3>Other Questions</h3>
 
-<%@all_questions.each do |all_q|%>
-    <%if all_q.user_id != current_user.id%>
-        <%=all_q.question%><br>
-    <%end%>
-<%end%>
+<% @all_questions.each do |all_q| %>
+    <% if all_q.user_id != current_user.id %>
+        <%= "Q: #{all_q.question} by #{all_q.user.name}" %><br>
+            
+            <% @all_answers.each do |all_a| %>
+                <%if all_a.question_id == all_q.id %>
+                    <%= "A: #{all_a.answer} by #{all_a.user.name}" %>
+                    <a href='/answer/<%=all_a.id%>/edit'>Edit</a>
+                    <a href='/answer/<%=all_a.id%>/delete'>Delete</a>
+                    <br>
+                <%end%>
+            <%end%>   
+
+            <form method="post" action="/question/<%= all_q.id %>/answers/add">
+                <input type=text placeholder="answer the question" name="answer"><br>
+                <input type=submit value="Add Answer">
+            </form>
+        
+    <% end %>
+<% end %>
 
 

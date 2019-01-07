@@ -2,7 +2,7 @@ $('.btn-vote-up').click(
     function(event){
         event.preventDefault();
         let current_id = event.target.value;
-            
+        console.log(current_id)  
     $.ajax({
         method: "POST",
         url: `/vote/${current_id}/add`,

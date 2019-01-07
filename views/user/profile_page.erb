@@ -12,14 +12,16 @@
         <a href='/answer/<%=a.id%>/delete'>Delete</a>
         <br>
         
-        <%="Answer Votes - #{a.votes.count}"%> 
-        <form method="post" action="/vote/<%=a.id%>/add">
-            <input type=submit value="Up Vote">
-        </form>
-      
+        <%# ======= VOTES ======= %>
+        <div class="current-votes-<%=a.id%>">
+            Answer Votes - <%= a.votes.count %> 
+        </div>
+    
+        <button class="btn-vote-up" value="<%=a.id%>">Up Vote</button>
+              
         <form method="post" action="/vote/<%=a.id%>/delete">
             <input id="hidden" type="hidden" name="_method" value="delete">
-            <input type=submit value="Remove Vote">
+            <input class="btn-vote-remove" type=submit value="Remove Vote">
         </form>                  
         
         <br>

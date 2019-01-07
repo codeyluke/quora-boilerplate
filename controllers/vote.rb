@@ -1,6 +1,12 @@
 post '/vote/:id/add' do 
-    Vote.create(answer_id: params[:id], user_id: current_user.id)
-    redirect to("/users/#{current_user.id}")
+    vote = Vote.new(answer_id: params[:id], user_id: current_user.id)
+    if vote.save
+        answer = Answer.find(params[:id])
+        new_count = answer.votes.count
+        return {message: "Successful",new_count: new_count}.to_json
+    else
+        {message: "Failed"}.to_json
+    end
 end 
 
 delete '/vote/:id/delete' do 

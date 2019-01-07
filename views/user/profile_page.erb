@@ -18,11 +18,7 @@
         </div>
     
         <button class="btn-vote-up" value="<%=a.id%>">Up Vote</button>
-              
-        <form method="post" action="/vote/<%=a.id%>/delete">
-            <input id="hidden" type="hidden" name="_method" value="delete">
-            <input class="btn-vote-remove" type=submit value="Remove Vote">
-        </form>                  
+        <button class="btn-vote-remove" value="<%=a.id%>">Remove Vote</button>              
         
         <br>
     <%end%>
@@ -68,8 +64,6 @@
                         <input id="hidden" type="hidden" name="_method" value="delete">
                         <input type=submit value="Remove Vote">
                     </form>                  
-    
-                    <br>
                 <%end%>
             <%end%>   
             <form method="post" action="/question/<%= all_q.id %>/answers/add">
